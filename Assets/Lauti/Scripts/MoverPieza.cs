@@ -9,17 +9,18 @@ public class MoverPieza : MonoBehaviour
     public Color colorBorde = Color.yellow;
     public float grosorBorde = 1.15f; // qué tanto más grande es el borde (15%)
 
+    [Header("Estado")]
+    public bool tomada = false; // true apenas el jugador la agarra por primera vez
+
     private bool isDragging = false;
     private Vector3 dragOffset;
 
     private SpriteRenderer sr;
     private GameObject borde;
     private SpriteRenderer srBorde;
-    private Rigidbody2D cuerpo;
 
     void Awake()
     {
-        cuerpo = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         CrearBorde();
     }
@@ -46,21 +47,22 @@ public class MoverPieza : MonoBehaviour
         dragOffset = transform.position - GetMouseWorldPosition();
 
         borde.SetActive(true); // muestra el marco de color
+
+        // A partir de acá, esta pieza "sale" del selector: el paginado
+        // ya no la va a apagar ni reposicionar nunca más.
+        tomada = true;
     }
 
     void OnMouseDrag()
     {
         if (!isDragging) return;
         transform.position = GetMouseWorldPosition() + dragOffset;
-        cuerpo.simulated = false;
-    } 
-
-    
+    }
 
     void OnMouseUp()
     {
         isDragging = false;
-        cuerpo.simulated = true;
+
         borde.SetActive(false); // oculta el marco de nuevo
     }
 

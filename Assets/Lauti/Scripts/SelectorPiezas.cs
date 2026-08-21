@@ -24,21 +24,25 @@ public class SelectorPiezas : MonoBehaviour
 
     void MostrarPagina(int pagina)
     {
-        // Primero apagamos todas las piezas de este selector
-        foreach (var pieza in piezas)
-        {
-            pieza.SetActive(false);
-        }
-
-        // Prendemos y ubicamos solo las que corresponden a esta página
         int inicio = pagina * piezasPorPagina;
-        for (int i = 0; i < piezasPorPagina; i++)
-        {
-            int index = inicio + i;
-            if (index >= piezas.Count) break; // no hay más piezas, cortamos
+        int fin = inicio + piezasPorPagina;
 
-            piezas[index].SetActive(true);
-            piezas[index].transform.position = slots[i].position;
+        for (int i = 0; i < piezas.Count; i++)
+        {
+            MoverPieza mp = piezas[i].GetComponent<MoverPieza>();
+
+            // Si el jugador ya la agarró alguna vez, no la tocamos para nada:
+            // sigue viva donde el jugador la haya dejado, sin importar la página.
+            if (mp != null && mp.tomada) continue;
+
+            bool perteneceAEstaPagina = (i >= inicio && i < fin);
+            piezas[i].SetActive(perteneceAEstaPagina);
+
+            if (perteneceAEstaPagina)
+            {
+                int slotIndex = i - inicio;
+                piezas[i].transform.position = slots[slotIndex].position;
+            }
         }
 
         paginaActual = pagina;
