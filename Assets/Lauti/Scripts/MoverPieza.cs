@@ -15,9 +15,11 @@ public class MoverPieza : MonoBehaviour
     private SpriteRenderer sr;
     private GameObject borde;
     private SpriteRenderer srBorde;
+    private Rigidbody2D cuerpo;
 
     void Awake()
     {
+        cuerpo = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         CrearBorde();
     }
@@ -50,12 +52,15 @@ public class MoverPieza : MonoBehaviour
     {
         if (!isDragging) return;
         transform.position = GetMouseWorldPosition() + dragOffset;
-    }
+        cuerpo.simulated = false;
+    } 
+
+    
 
     void OnMouseUp()
     {
         isDragging = false;
-
+        cuerpo.simulated = true;
         borde.SetActive(false); // oculta el marco de nuevo
     }
 
