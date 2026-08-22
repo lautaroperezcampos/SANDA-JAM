@@ -20,11 +20,16 @@ public class MoverPieza : MonoBehaviour
     private GameObject borde;
     private SpriteRenderer srBorde;
 
+    [Header("Escala")]
+    public float escalaEnSelector = 0.3f;
+    public float escalaFueraDeSelector = 0.6f;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         CrearBorde();
+        transform.localScale = Vector3.one * escalaEnSelector;
     }
 
     // Genera el cuadrado de borde como hijo, una sola vez, al arrancar
@@ -52,6 +57,10 @@ public class MoverPieza : MonoBehaviour
 
         // A partir de acá, esta pieza "sale" del selector: el paginado
         // ya no la va a apagar ni reposicionar nunca más.
+        if (!tomada)
+        {
+            transform.localScale = Vector3.one * escalaFueraDeSelector;
+        }
         tomada = true;
     }
 
@@ -62,6 +71,16 @@ public class MoverPieza : MonoBehaviour
         rb.simulated = false;
 
 
+    }
+    // NUEVO: rota la pieza 90° con la tecla R, solo mientras se arrastra
+    void Update()
+    {
+        if (!isDragging) return;
+
+        if (Keyboard.current.rKey.wasPressedThisFrame)
+        {
+            transform.Rotate(0f, 0f, -90f); // -90 = sentido horario (derecha, abajo, izquierda, arriba)
+        }
     }
 
     void OnMouseUp()
