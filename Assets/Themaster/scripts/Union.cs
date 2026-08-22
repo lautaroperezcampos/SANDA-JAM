@@ -4,6 +4,8 @@ using System.Collections.Generic;
 public class Union : MonoBehaviour
 {
     public List<GameObject> PiezasDelNivel1;
+    public GameObject ubicador;
+    public GameObject Padre;
 
     private void Update()
     {
@@ -11,20 +13,26 @@ public class Union : MonoBehaviour
         {
             UnificarPiezasNivel1();
         }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Padre.transform.localPosition = Vector3.zero;
+        }
     }
     public void UnificarPiezasNivel1()
     {
-        GameObject Padre = new GameObject("PiezaCompletaLvl1");
+         Padre = new GameObject("PiezaCompletaLvl1");
 
-        Padre.transform.position = PiezasDelNivel1[0].transform.position;
+
 
         foreach(GameObject pieza in PiezasDelNivel1)
         {
             if(pieza != null )
             {
-                pieza.transform.SetParent(Padre.transform, true);
+                pieza.transform.SetParent(Padre.transform, false);
             }
         }
         DontDestroyOnLoad(Padre);
+        
+       
     }
 }
