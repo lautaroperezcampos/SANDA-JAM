@@ -60,6 +60,8 @@ public class MoverPieza : MonoBehaviour
         if (!isDragging) return;
         transform.position = GetMouseWorldPosition() + dragOffset;
         rb.simulated = false;
+
+
     }
 
     void OnMouseUp()
