@@ -30,7 +30,7 @@ public class Puntaje : MonoBehaviour
             Restar();
         }
 
-        Porcentaje = 100 / 100 * Puntos;
+        Porcentaje = Puntos / 126 * 100;
     }
     void Restar()
     {
