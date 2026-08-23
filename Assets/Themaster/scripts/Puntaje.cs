@@ -27,13 +27,14 @@ public class Puntaje : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            Restar();
+            Determinar();
         }
 
-        Porcentaje = Puntos / 105 * 100;
+
     }
-    void Restar()
+    public void Determinar()
     {
-        Puntos = Puntos - Perdidas; 
+        Puntos = Puntos - Perdidas;
+        Porcentaje = Puntos / 105 * 100;
     }
 }

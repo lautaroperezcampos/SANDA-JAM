@@ -26,6 +26,14 @@ public class Union : MonoBehaviour
        
         }
     }
+
+    public void DeterminarPuntaje()
+    {
+        Padre.transform.position = Vector2.zero;
+
+        puntuador.SetActive(true);
+
+    }
     public void UnificarPiezasNivel1()
     {
          Padre = new GameObject("PiezaCompletaLvl1");
