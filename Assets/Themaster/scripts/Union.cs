@@ -6,8 +6,12 @@ public class Union : MonoBehaviour
     public List<GameObject> PiezasDelNivel1;
     public GameObject ubicador;
     public GameObject Padre;
-    public GameObject penalizador;
+    public GameObject puntuador;
+    private void Awake()
+    {
+        puntuador.SetActive(false);
 
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.V))
@@ -17,6 +21,8 @@ public class Union : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             Padre.transform.position = Vector2.zero;
+
+            puntuador.SetActive(true);
        
         }
     }

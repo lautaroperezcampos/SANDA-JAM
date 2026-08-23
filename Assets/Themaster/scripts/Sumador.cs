@@ -3,10 +3,11 @@ using UnityEngine;
 public class Sumador : MonoBehaviour
 {
     public Puntaje puntos;
+    public bool activar;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        activar = true;
     }
 
     // Update is called once per frame
@@ -16,21 +17,37 @@ public class Sumador : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        puntos = FindAnyObjectByType<Puntaje>();
 
         if (collision.CompareTag("Pieza"))
         {
-            puntos = FindAnyObjectByType<Puntaje>();
-            puntos.Puntos += 7;
+            if (activar)
+            {
+                puntos.Puntos += 7;
+            }
+
+            activar = false;
         }
+
+        if (collision.CompareTag("Piezalvl2"))
+        {
+            if (activar)
+            {
+                puntos.Puntos += 1;
+            }
+
+            activar = false;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
 
+        
 
-        if (collision.CompareTag("Pieza"))
-        {
-            puntos.Puntos -= 7;
-        }
     }
 }

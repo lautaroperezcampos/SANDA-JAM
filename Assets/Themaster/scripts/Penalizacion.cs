@@ -23,6 +23,12 @@ public class Penalizacion : MonoBehaviour
             puntos = FindAnyObjectByType<Puntaje>();
             puntos.Perdidas++;
         }
+
+        if (collision.CompareTag("Piezalvl2"))
+        {
+            puntos = FindAnyObjectByType<Puntaje>();
+            puntos.Perdidas += 2;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -31,6 +37,10 @@ public class Penalizacion : MonoBehaviour
         if (collision.CompareTag("Pieza"))
         {
             puntos.Perdidas--;
+        }
+        if (collision.CompareTag("Piezalvl2"))
+        {
+            puntos.Perdidas -= 2;
         }
     }
 }

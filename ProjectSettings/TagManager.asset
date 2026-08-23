@@ -9,6 +9,7 @@ TagManager:
   - Izquierdo
   - Derecho
   - Pieza
+  - Piezalvl2
   layers:
   - Default
   - TransparentFX
