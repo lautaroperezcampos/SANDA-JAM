@@ -10,6 +10,8 @@ TagManager:
   - Derecho
   - Pieza
   - Piezalvl2
+  - Piedralvl3
+  - Piezalvl3
   layers:
   - Default
   - TransparentFX
