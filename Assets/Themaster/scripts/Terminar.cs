@@ -38,7 +38,7 @@ public class Terminar : MonoBehaviour
         }
         else if (nivel == 3)
         {
-            if (cantidadPiezas == 33)
+            if (cantidadPiezas == 32)
             {
                 Listo.SetActive(true);
             }
@@ -63,7 +63,7 @@ public class Terminar : MonoBehaviour
             cantidadPiezas++;
             nivel = 2;
         }
-        if (collision.CompareTag("Piezalvl3"))
+        if (collision.CompareTag("Piezalvl3") || collision.CompareTag("Piedralvl3"))
         {
             cantidadPiezas++;
             nivel = 3;
@@ -80,7 +80,7 @@ public class Terminar : MonoBehaviour
         {
             cantidadPiezas--;
         }
-        if (collision.CompareTag("Piezalvl3"))
+        if (collision.CompareTag("Piezalvl3") || collision.CompareTag("Piedralvl3"))
         {
             cantidadPiezas--;
         }

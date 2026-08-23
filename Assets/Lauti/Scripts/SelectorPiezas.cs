@@ -29,11 +29,24 @@ public class SelectorPiezas : MonoBehaviour
 
         for (int i = 0; i < piezas.Count; i++)
         {
+            // Chequeamos si la pieza está tomada, sea cual sea de los 2 scripts que tenga
+            // (MoverPieza en Nivel1/Nivel2, MoverPieza2 en Nivel3)
+            bool piezaTomada = false;
+
             MoverPieza mp = piezas[i].GetComponent<MoverPieza>();
+            if (mp != null)
+            {
+                piezaTomada = mp.tomada;
+            }
+            else
+            {
+                MoverPieza2 mp2 = piezas[i].GetComponent<MoverPieza2>();
+                if (mp2 != null) piezaTomada = mp2.tomada;
+            }
 
             // Si el jugador ya la agarró alguna vez, no la tocamos para nada:
             // sigue viva donde el jugador la haya dejado, sin importar la página.
-            if (mp != null && mp.tomada) continue;
+            if (piezaTomada) continue;
 
             bool perteneceAEstaPagina = (i >= inicio && i < fin);
             piezas[i].SetActive(perteneceAEstaPagina);
