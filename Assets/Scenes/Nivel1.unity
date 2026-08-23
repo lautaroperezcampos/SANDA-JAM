@@ -2821,6 +2821,7 @@ GameObject:
   - component: {fileID: 416953624}
   - component: {fileID: 416953623}
   - component: {fileID: 416953622}
+  - component: {fileID: 416953625}
   m_Layer: 5
   m_Name: BotonIzquierda
   m_TagString: Untagged
@@ -2941,6 +2942,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416953620}
   m_CullTransparentMesh: 1
+--- !u!114 &416953625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416953620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf68206d535d1424987bca6005946889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MantenerFijo
 --- !u!1 &418252456
 GameObject:
   m_ObjectHideFlags: 0
@@ -15735,6 +15748,7 @@ GameObject:
   - component: {fileID: 1763785284}
   - component: {fileID: 1763785283}
   - component: {fileID: 1763785282}
+  - component: {fileID: 1763785285}
   m_Layer: 5
   m_Name: BotonDerecha
   m_TagString: Untagged
@@ -15749,7 +15763,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763785280}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15855,6 +15869,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763785280}
   m_CullTransparentMesh: 1
+--- !u!114 &1763785285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763785280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf68206d535d1424987bca6005946889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MantenerFijo
 --- !u!1 &1809728857
 GameObject:
   m_ObjectHideFlags: 0
@@ -15867,6 +15893,7 @@ GameObject:
   - component: {fileID: 1809728861}
   - component: {fileID: 1809728860}
   - component: {fileID: 1809728859}
+  - component: {fileID: 1809728862}
   m_Layer: 5
   m_Name: MostrarObra
   m_TagString: Untagged
@@ -15987,6 +16014,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809728857}
   m_CullTransparentMesh: 1
+--- !u!114 &1809728862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809728857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf68206d535d1424987bca6005946889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MantenerFijo
 --- !u!1 &1811896982
 GameObject:
   m_ObjectHideFlags: 0
