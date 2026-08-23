@@ -3,12 +3,14 @@ using UnityEngine;
 public class Puntaje : MonoBehaviour
 {
     public float Puntos;
+    public float Porcentaje;
     public int Perdidas;
     public bool Derrota;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Puntos = 100;
+     
     }
 
     // Update is called once per frame
@@ -19,10 +21,16 @@ public class Puntaje : MonoBehaviour
         {
             Derrota = true;
         }
+        else
+        {
+            Derrota = false;
+        }
         if (Input.GetKeyDown(KeyCode.K))
         {
             Restar();
         }
+
+        Porcentaje = 100 / 100 * Puntos;
     }
     void Restar()
     {
